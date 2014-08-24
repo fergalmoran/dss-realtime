@@ -54,10 +54,10 @@ sio.set('authorization', function (data, accept) {
 
 sio.sockets.on('connection', function (socket) {
     var hs = socket.handshake;
-    console.log('A socket with sessionID ' + hs.sessionID + ' connected.');
 
     var cookie = cookie_reader.parse(socket.handshake.headers.cookie);
 
+    console.log('A socket with sessionID ' + cookie['sessionid'] + ' connected.');
     sessions[cookie['sessionid']] = socket.id;
     clients[socket.id] = socket;
 
