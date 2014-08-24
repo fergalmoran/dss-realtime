@@ -86,6 +86,7 @@ app.post("/notification", function (req, res) {
         clients[sessions[req.body.sessionid]].emit('notification', {message: req.body.message});
         res.send(req.body);
     }else{
-        res.send(410);
+        console.log("Session with key " + req.body.sessionid + "not found");
+        res.status(410).end();
     }
 });
