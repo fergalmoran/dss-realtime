@@ -83,7 +83,7 @@ app.get("/", function (req, res) {
 app.post("/notification", function (req, res) {
     if (sessions[req.body.sessionid]) {
         console.log("Data is: " + req.body.message);
-        clients[sessions[req.body.sessionid]].emit('notification', {message: req.body.message});
+        clients[sessions[req.body.sessionid]].emit('notification', req.body);
         res.send(req.body);
     }else{
         console.log("Session with key " + req.body.sessionid + "not found");
