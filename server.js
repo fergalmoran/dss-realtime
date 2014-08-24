@@ -86,6 +86,6 @@ app.post("/notification", function (req, res) {
         clients[sessions[req.body.sessionid]].emit('notification', {message: req.body.message});
         res.send(req.body);
     }else{
-        res.send(404);
+        res.send(410);
     }
 });
